@@ -72,6 +72,7 @@ button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(-
   </div>
   <div class="help">Toca un número cuando salga en la pantalla para tacharlo. Si te equivocas, tócalo otra vez. <b>Al completar una fila canta «¡LÍNEA!»</b> y con el cartón entero <b>«¡BINGO!»</b>. Se comprobará en la pantalla con tu número de cartón.</div>
   <button class="ghost" id="clear">Borrar mis marcas (nueva partida)</button>
+  <button class="ghost" id="change" style="margin-top:10px">Cambiar de cartón</button>
  </div>
 </div>
 
@@ -139,6 +140,11 @@ $('pickForm').addEventListener('submit', e => {
   try{ history.replaceState(null, '', '?c=' + n); }catch(e){}
   open(n);
 });
+$('change').onclick = () => {
+  try{ localStorage.removeItem('fcenforma-bingo-2026-mine'); history.replaceState(null, '', location.pathname); }catch(e){}
+  no = null; $('cardView').hidden = true; $('tag').hidden = true; $('pickView').hidden = false;
+  $('pickNo').value = ''; $('err').textContent = ''; $('pickNo').focus();
+};
 $('clear').onclick = () => $('modal').classList.add('show');
 $('cancel').onclick = () => $('modal').classList.remove('show');
 $('ok').onclick = () => { marks.clear(); store(); $('modal').classList.remove('show'); draw(); };
