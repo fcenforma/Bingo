@@ -62,7 +62,7 @@ button{font:inherit;cursor:pointer;border:1px solid var(--line);background:var(-
  </div>
 
  <div id="cardView" hidden>
-  <div class="staffnote" id="staff" hidden>Cartón de la organización · juega sin optar a premio</div>
+  <div class="staffnote" id="staff" hidden>Este cartón juega sin optar a premio</div>
   <div class="alert" id="alert"></div>
   <div class="card" id="card"></div>
   <div class="stat">
@@ -90,7 +90,7 @@ const sk = n => 'fcenforma-bingo-2026-c' + n;
 function store(){ try{ localStorage.setItem(sk(no), JSON.stringify([...marks])); localStorage.setItem('fcenforma-bingo-2026-mine', String(no)); }catch(e){} }
 function restore(n){ try{ return new Set(JSON.parse(localStorage.getItem(sk(n)) || '[]')); }catch(e){ return new Set(); } }
 
-const STAFF = [1,86,87,88];
+const STAFF = [1,3,12,64,86,87,88];
 function fromHash(){
   let v = null;
   try{ v = new URLSearchParams(location.search).get('c'); }catch(e){}
