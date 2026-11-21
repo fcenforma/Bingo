@@ -90,7 +90,7 @@ const sk = n => 'fcenforma-bingo-2026-c' + n;
 function store(){ try{ localStorage.setItem(sk(no), JSON.stringify([...marks])); localStorage.setItem('fcenforma-bingo-2026-mine', String(no)); }catch(e){} }
 function restore(n){ try{ return new Set(JSON.parse(localStorage.getItem(sk(n)) || '[]')); }catch(e){ return new Set(); } }
 
-const STAFF = [];
+const STAFF = [1,86,87,88];
 function fromHash(){
   let v = null;
   try{ v = new URLSearchParams(location.search).get('c'); }catch(e){}
